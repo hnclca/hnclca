@@ -544,6 +544,106 @@
 
 
   
+    <article id="post-kotlin-android错误集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/1972/01/01/kotlin-android错误集/">kotlin-android错误集</a>
+    </h1>
+  
+
+        
+        <a href="/1972/01/01/kotlin-android错误集/" class="archive-article-date">
+  	<time datetime="1972-01-01T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1972-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="app-‘androidProcessor’-dependencies-won’t-be-recognized-as-kapt-annotation-processors"><a href="#app-‘androidProcessor’-dependencies-won’t-be-recognized-as-kapt-annotation-processors" class="headerlink" title="app: ‘androidProcessor’ dependencies won’t be recognized as kapt annotation processors."></a>app: ‘androidProcessor’ dependencies won’t be recognized as kapt annotation processors.</h3><p><strong>错误信息</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app: &apos;androidProcessor&apos; dependencies won&apos;t be recognized as kapt annotation processors. Please change the configuration name to &apos;kapt&apos; for these artifacts: &apos;com.android.databinding:compiler:3.0.0&apos;.</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行环境</strong>：</p>
+<ul>
+<li>Android Studio 3.0</li>
+<li>Android Gradle Plugin 3.0.0</li>
+<li>kotlin version 1.1.60</li>
+</ul>
+<p><strong>问题原因</strong>：</p>
+<ul>
+<li>kotlin下要使用kapt，而不是apt</li>
+<li>kotlin version与gradle plugin版本不匹配。</li>
+</ul>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li><p>使用kapt替换annotationProcessor</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kapt deps.databinding.compiler</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kotlin版本更换为1.1.2-2<br>databinding的apt与Dagger，Room的不一样，是通过android中配置的。<br>不更换版本也可以，只是Gradle console会出现错误提示而已。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	...</span><br><span class="line">    dataBinding &#123;</span><br><span class="line">        enabled = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/1972/01/01/kotlin-android错误集/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">errors</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/1972/01/01/kotlin-android错误集/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git错误集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -786,106 +886,6 @@
 
 
   
-    <article id="post-kotlin-android错误集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/1972/01/01/kotlin-android错误集/">kotlin-android错误集</a>
-    </h1>
-  
-
-        
-        <a href="/1972/01/01/kotlin-android错误集/" class="archive-article-date">
-  	<time datetime="1972-01-01T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1972-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="app-‘androidProcessor’-dependencies-won’t-be-recognized-as-kapt-annotation-processors"><a href="#app-‘androidProcessor’-dependencies-won’t-be-recognized-as-kapt-annotation-processors" class="headerlink" title="app: ‘androidProcessor’ dependencies won’t be recognized as kapt annotation processors."></a>app: ‘androidProcessor’ dependencies won’t be recognized as kapt annotation processors.</h3><p><strong>错误信息</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app: &apos;androidProcessor&apos; dependencies won&apos;t be recognized as kapt annotation processors. Please change the configuration name to &apos;kapt&apos; for these artifacts: &apos;com.android.databinding:compiler:3.0.0&apos;.</span><br></pre></td></tr></table></figure></p>
-<p><strong>运行环境</strong>：</p>
-<ul>
-<li>Android Studio 3.0</li>
-<li>Android Gradle Plugin 3.0.0</li>
-<li>kotlin version 1.1.60</li>
-</ul>
-<p><strong>问题原因</strong>：</p>
-<ul>
-<li>kotlin下要使用kapt，而不是apt</li>
-<li>kotlin version与gradle plugin版本不匹配。</li>
-</ul>
-<p><strong>解决方案</strong>：</p>
-<ul>
-<li><p>使用kapt替换annotationProcessor</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kapt deps.databinding.compiler</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>kotlin版本更换为1.1.2-2<br>databinding的apt与Dagger，Room的不一样，是通过android中配置的。<br>不更换版本也可以，只是Gradle console会出现错误提示而已。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	...</span><br><span class="line">    dataBinding &#123;</span><br><span class="line">        enabled = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/1972/01/01/kotlin-android错误集/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">errors</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/1972/01/01/kotlin-android错误集/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-android-ndk错误集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -922,11 +922,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jni</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">errors</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">errors</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jni</a>
         		</li>
       		
 		</ul>
@@ -1110,19 +1110,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jni</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">open source</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">log</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sample</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">open source</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,7 +1134,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kotlin</a>
+                <a href="javascript:void(0)" class="js-tag color4">jni</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1150,7 +1146,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">module</a>
+                <a href="javascript:void(0)" class="js-tag color2">kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,7 +1158,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">editor</a>
+                <a href="javascript:void(0)" class="js-tag color2">module</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,6 +1167,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">editor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,15 +1206,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data binding</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
