@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="橘子煮茶">
 <meta property="og:description" content="环境配置参见官方文档  git Node.js Hexo  本地搭建以下命令在Node.js command prompt，也可以在cmd中执行 初始化123# blog是文件夹名字，&amp;gt; hexo init blog&amp;gt; cd blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T02:03:36.439Z">
+<meta property="og:updated_time" content="2018-03-01T05:17:57.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建个人博客">
 <meta name="twitter:description" content="环境配置参见官方文档  git Node.js Hexo  本地搭建以下命令在Node.js command prompt，也可以在cmd中执行 初始化123# blog是文件夹名字，&amp;gt; hexo init blog&amp;gt; cd blog">
@@ -176,8 +176,8 @@
 <h4 id="博客文章"><a href="#博客文章" class="headerlink" title="博客文章"></a>博客文章</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Writing</span><br><span class="line">new_post_name: :year-:month-:day-:title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><h4 id="安装git部署器"><a href="#安装git部署器" class="headerlink" title="安装git部署器"></a>安装git部署器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <h4 id="创建github项目"><a href="#创建github项目" class="headerlink" title="创建github项目"></a>创建github项目</h4><p>创建项目时，使用username.github.io名称，会默认开启GitHub Pages功能，否则需要在项目Settings-&gt;GitHub Pages-&gt;选择主题，并commit后才能开启，且站点地址为<a href="https://username.github.io/reponame" target="_blank" rel="noopener">https://username.github.io/reponame</a></p>
-<h4 id="配置部署器"><a href="#配置部署器" class="headerlink" title="配置部署器"></a>配置部署器</h4><p>如果不配置name和email将默认使用全局配置。<br>当已经存在.deploy_git文件夹后，修改该配置，将不生效。需要删除.deploy_git后，重新部署方能生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://hnclca.github.io/</span><br><span class="line">root: /</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/hnclca/hnclca.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">  name: yourname</span><br><span class="line">  email: youremail</span><br></pre></td></tr></table></figure>
+<h4 id="配置部署器"><a href="#配置部署器" class="headerlink" title="配置部署器"></a>配置部署器</h4><p>如果不配置name和email将默认使用全局配置。<br>当已经存在.deploy_git文件夹后，修改该配置，将不生效。需要删除.deploy_git后，重新部署方能生效。<br>请使用ssh方式，否则会出现fatal: HttpRequestException encountered.错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://hnclca.github.io/</span><br><span class="line">root: /</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:hnclca/hnclca.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">  name: yourname</span><br><span class="line">  email: youremail</span><br></pre></td></tr></table></figure>
 <h4 id="生成并部署"><a href="#生成并部署" class="headerlink" title="生成并部署"></a>生成并部署</h4><p>这里部署，仅将生成的文件推送到新建的repo项目中，并不包括blog文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 清除缓存，确保修改生效</span><br><span class="line"># d是deploy的简写</span><br><span class="line">&gt; hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><h4 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h4><p>将下载后的主题，放置到blog/themes目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
 <h4 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
@@ -312,6 +312,32 @@ D--&gt;&gt;A: Dashed open arro</div>
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://hnclca.github.io/2017/12/13/Hexo搭建个人博客/",
+  owner: 'hnclca',
+  repo: 'gitment_comments',
+  oauth: {
+    client_id: '89fa3ff7d8c58bcd7744',
+    client_secret: '31615db67caff01fd61686656d4f7c3b22fe95b2',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -467,6 +493,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jni</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">adb</a>
               </li>
              
@@ -475,7 +505,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jni</a>
+                <a href="javascript:void(0)" class="js-tag color5">android studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,7 +517,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android studio</a>
+                <a href="javascript:void(0)" class="js-tag color2">module</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,14 +526,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">module</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +561,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">patterns</a>
+                <a href="javascript:void(0)" class="js-tag color2">Http Client</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,7 +569,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Http Client</a>
+                <a href="javascript:void(0)" class="js-tag color4">patterns</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +581,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tools - open source</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+                <a href="javascript:void(0)" class="js-tag color5">tools - open source</a>
               </li>
              
               <li class="article-tag-list-item">
